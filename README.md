@@ -4,4 +4,5 @@ My NixOS configuration files. Don't look yet, they are not ready and I'm still l
 
 ```
 nixos-rebuild switch --flake ~/dotfiles
+sudo nix-collect-garbage -d
 ```
