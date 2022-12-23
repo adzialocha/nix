@@ -17,7 +17,7 @@ in {
       };
 
       modules = {
-        "wireless _first_": {
+        "wireless _first_" = {
 	  position = 1;
 	  settings = {
 	    format_up = "%quality %ip";
@@ -25,7 +25,7 @@ in {
 	  };
 	};
 
-        "tztime local": {
+        "tztime local" = {
 	  position = 2;
 	  settings = {
 	    format = "%d.%m. %H:%M ";

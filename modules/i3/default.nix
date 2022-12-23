@@ -64,6 +64,14 @@ in {
 	  border = 1;
 	};
 
+	menu = "${lib.getExe pkgs.rofi}";
+
+	startup = [
+	  {
+	    command = "${lib.getExe pkgs.alacritty}";
+	  }
+	];
+
 	keybindings = lib.mkOptionDefault {
 	  # Launch process
 	  "${mod}+Return" = "exec ${lib.getExe pkgs.alacritty}";
@@ -82,8 +90,7 @@ in {
 	bars = [
 	  {
 	    position = "bottom";
-	    workspaceButtons = "no";
-	    separatorSymbol = " ~ ";
+	    workspaceButtons = false;
 	    colors = {
 	      background = "#000000";
 	    };
