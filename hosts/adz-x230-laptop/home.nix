@@ -45,7 +45,7 @@
     alacritty.enable = true;
     git.enable = true;
     i3.enable = true;
-    # i3status.enable = true;
+    i3status.enable = true;
     neovim.enable = true;
     rofi.enable = true;
     zsh.enable = true;

@@ -62,9 +62,13 @@ in {
 	window = {
 	  titlebar = false;
 	  border = 1;
+	  hideEdgeBorders = "both";
 	};
 
-	menu = "${lib.getExe pkgs.rofi}";
+	floating = {
+	  titlebar = true;
+	  border = 1;
+	};
 
 	startup = [
 	  {
@@ -75,7 +79,7 @@ in {
 	keybindings = lib.mkOptionDefault {
 	  # Launch process
 	  "${mod}+Return" = "exec ${lib.getExe pkgs.alacritty}";
-	  "${mod}+Space" = "exec ${lib.getExe pkgs.rofi} -show run";
+	  "${mod}+space" = "exec ${lib.getExe pkgs.rofi} -show run";
 
 	  # Switch process
 	  "${mod}+Tab" = "exec ${lib.getExe pkgs.rofi} -show window";
@@ -85,6 +89,9 @@ in {
           "${mod}+j" = "move down";
           "${mod}+k" = "move up";
           "${mod}+l" = "move right";
+
+	  # Show floating windows with title
+	  # "${mod}+Shift+space" = "floating toggle; [tiling con_id=__focused__] border none; [floating con_id=__focused__] border normal";
 	};
 
 	bars = [
