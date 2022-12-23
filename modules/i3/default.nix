@@ -97,15 +97,17 @@ in {
 	bars = [
 	  {
 	    position = "bottom";
-	    statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs";
-	    # workspaceButtons = false;
-	    # fonts = {
-	    #   names = [ "IBM Plex Mono" ];
-	    #   size = 11.0;
-	    # };
-	    # colors = {
-	    #   background = "#000000";
-	    # };
+	    statusCommand = "${pkgs.i3status}/bin/i3status";
+	    workspaceButtons = false;
+	    fonts = {
+	      names = [ "IBM Plex Mono" ];
+	      size = 11.0;
+	    };
+	    colors = {
+	      background = "#000000";
+	      statusline = "#FFFFFF";
+	      separator = "#000000";
+	    };
 	  }
 	];
       };
