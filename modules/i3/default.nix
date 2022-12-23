@@ -91,16 +91,21 @@ in {
           "${mod}+l" = "move right";
 
 	  # Show floating windows with title
-	  # "${mod}+Shift+space" = "floating toggle; [tiling con_id=__focused__] border none; [floating con_id=__focused__] border normal";
+	  "${mod}+Shift+space" = "floating toggle; [tiling con_id=__focused__] border none; [floating con_id=__focused__] border normal";
 	};
 
 	bars = [
 	  {
 	    position = "bottom";
-	    workspaceButtons = false;
-	    colors = {
-	      background = "#000000";
-	    };
+	    statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs";
+	    # workspaceButtons = false;
+	    # fonts = {
+	    #   names = [ "IBM Plex Mono" ];
+	    #   size = 11.0;
+	    # };
+	    # colors = {
+	    #   background = "#000000";
+	    # };
 	  }
 	];
       };
