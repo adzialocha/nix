@@ -1,7 +1,6 @@
-{ inputs, config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let cfg = config.modules.zsh;
-
 in {
   options.modules.zsh.enable = lib.mkEnableOption "zsh";
 

@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 let cfg = config.modules.git;
-
 in {
   options.modules.git.enable = lib.mkEnableOption "git";
 

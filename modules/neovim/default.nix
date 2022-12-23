@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 let cfg = config.modules.neovim;
-
 in {
   options.modules.neovim.enable = lib.mkEnableOption "neovim";
 
