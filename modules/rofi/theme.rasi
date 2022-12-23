@@ -1,13 +1,3 @@
-configuration {
-    combi-modi: "window,run,ssh";
-    modi: "combi";
-
-    timeout {
-        action: "kb-cancel";
-        delay:  0;
-    }
-}
-
 * {
     highlight: bold;
     scrollbar: false;
@@ -45,7 +35,6 @@ configuration {
 }
 
 window {
-    font:             "IBM Plex Mono 11";
     background-color: @background;
     border:           0;
     padding:          10;
