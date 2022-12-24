@@ -43,6 +43,7 @@
 
   modules = {
     alacritty.enable = true;
+    fzf.enable = true;
     git.enable = true;
     i3.enable = true;
     i3status.enable = true;
