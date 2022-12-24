@@ -1,13 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
-  boot = {
-    loader.systemd-boot.enable = true;
-  };
+  boot = { loader.systemd-boot.enable = true; };
 
   networking = {
     hostName = "adz-x230-laptop";
@@ -16,9 +12,7 @@
 
   time.timeZone = "Europe/Berlin";
 
-  console = {
-    enable = false;
-  };
+  console = { enable = false; };
 
   i18n = {
     defaultLocale = "en_US.utf8";
@@ -35,46 +29,39 @@
     };
   };
 
-  sound = {
-    enable = true;
-  };
+  sound = { enable = true; };
 
   services = {
     xserver = {
       enable = true;
       layout = "eu";
       displayManager = {
-	# This session is just a placeholder, we let the home manager handle
-	# everything for us instead
+        # This session is just a placeholder, we let the home manager handle
+        # everything for us instead
         session = [{
           manage = "window";
           name = "placeholder";
           start = "";
         }];
         defaultSession = "none+placeholder";
-	# @TODO: Remove this and find a nice command line based login flow
+        # @TODO: Remove this and find a nice command line based login flow
         autoLogin.enable = true;
         autoLogin.user = "adz";
       };
-      excludePackages = with pkgs; [
-        xterm
-      ];
+      excludePackages = with pkgs; [ xterm ];
     };
   };
 
   users.users.adz = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
 
   nixpkgs.config.allowUnfree = true;
 
-  environment = {
-    systemPackages = with pkgs; [];
-  };
-
+  environment = { systemPackages = with pkgs; [ ]; };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -9,12 +9,8 @@ in {
       enable = true;
       enableZshIntegration = true;
       defaultCommand = "fd --type f";
-      defaultOptions = [
-	"--exclude .git"
-	"--follow"
-	"--preview 'cat {}'"
-        "--hidden"
-      ];
+      defaultOptions =
+        [ "--exclude .git" "--follow" "--preview 'cat {}'" "--hidden" ];
     };
   };
 }

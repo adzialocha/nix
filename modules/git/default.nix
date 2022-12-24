@@ -12,11 +12,11 @@ in {
       extraConfig = {
         core.autocrlf = "input";
         init.defaultBranch = "main";
-	apply.whitespace = "fix";
-	push.default = "simple";
-	pull.rebase = true;
-	merge.log = true;
-	log.abbrevcommit = true;
+        apply.whitespace = "fix";
+        push.default = "simple";
+        pull.rebase = true;
+        merge.log = true;
+        log.abbrevcommit = true;
       };
     };
   };

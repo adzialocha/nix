@@ -1,9 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   boot = {
     loader.systemd-boot.enable = true;
@@ -18,9 +16,7 @@
 
   time.timeZone = "Europe/Berlin";
 
-  console = {
-    keyMap = "us";
-  };
+  console = { keyMap = "us"; };
 
   i18n = {
     defaultLocale = "en_US.utf8";
@@ -59,16 +55,13 @@
   users.users.adz = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
 
   nixpkgs.config.allowUnfree = true;
 
-  environment = {
-    systemPackages = with pkgs; [];
-  };
-
+  environment = { systemPackages = with pkgs; [ ]; };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

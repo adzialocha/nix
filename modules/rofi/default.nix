@@ -12,7 +12,7 @@ in {
       font = "IBM Plex Mono 11";
       theme = ./theme.rasi;
       extraConfig = {
-	modi = "combi";
+        modi = "combi";
         combi-modi = "window,run,ssh";
       };
     };

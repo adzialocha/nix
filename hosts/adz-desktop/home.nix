@@ -1,9 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./modules
-  ];
+  imports = [ ./modules ];
 
   xsession.enable = true;
 
@@ -35,9 +33,7 @@
     ];
   };
 
-  programs = {
-    home-manager.enable = true;
-  };
+  programs = { home-manager.enable = true; };
 
   modules = {
     alacritty.enable = true;

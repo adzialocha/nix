@@ -1,119 +1,112 @@
 { config, lib, pkgs, ... }:
 
-let 
+let
   cfg = config.modules.i3;
   mod = "Mod1";
 in {
-  options.modules.i3 = {
-    enable = lib.mkEnableOption "i3";
-  };
+  options.modules.i3 = { enable = lib.mkEnableOption "i3"; };
 
   config = lib.mkIf cfg.enable {
     xsession.windowManager.i3 = {
       enable = true;
 
       config = {
-      	modifier = mod;
+        modifier = mod;
 
-	fonts = {
-	  names = [ "IBM Plex Mono" ];
-	  size = 12.0;
-	};
+        fonts = {
+          names = [ "IBM Plex Mono" ];
+          size = 12.0;
+        };
 
-	colors = {
-	  background = "#2d2d2d";
-	  focused = {
-	    background = "#2d2d2d";
-	    border = "#1e1e1e";
-	    childBorder = "#2d2d2d";
-	    indicator = "#2d2d2d";
-	    text = "#d3c0c8";
-	  };
-	  focusedInactive = {
-	    background = "#2d2d2d";
-	    border = "#1e1e1e";
-	    childBorder = "#2d2d2d";
-	    indicator = "#2d2d2d";
-	    text = "#747369";
-	  };
-	  unfocused = {
-	    background = "#2d2d2d";
-	    border = "#1e1e1e";
-	    childBorder = "#2d2d2d";
-	    indicator = "#2d2d2d";
-	    text = "#747369";
-	  };
-	  urgent = {
-	    background = "#f2777a";
-	    border = "#1e1e1e";
-	    childBorder = "#2d2d2d";
-	    indicator = "#f2777a";
-	    text = "#2d2d2d";
-	  };
-	  placeholder = {
-	    background = "#2d2d2d";
-	    border = "#1e1e1e";
-	    childBorder = "#2d2d2d";
-	    indicator = "#292d2e";
-	    text = "#747369";
-	  };
-	};
+        colors = {
+          background = "#2d2d2d";
+          focused = {
+            background = "#2d2d2d";
+            border = "#1e1e1e";
+            childBorder = "#2d2d2d";
+            indicator = "#2d2d2d";
+            text = "#d3c0c8";
+          };
+          focusedInactive = {
+            background = "#2d2d2d";
+            border = "#1e1e1e";
+            childBorder = "#2d2d2d";
+            indicator = "#2d2d2d";
+            text = "#747369";
+          };
+          unfocused = {
+            background = "#2d2d2d";
+            border = "#1e1e1e";
+            childBorder = "#2d2d2d";
+            indicator = "#2d2d2d";
+            text = "#747369";
+          };
+          urgent = {
+            background = "#f2777a";
+            border = "#1e1e1e";
+            childBorder = "#2d2d2d";
+            indicator = "#f2777a";
+            text = "#2d2d2d";
+          };
+          placeholder = {
+            background = "#2d2d2d";
+            border = "#1e1e1e";
+            childBorder = "#2d2d2d";
+            indicator = "#292d2e";
+            text = "#747369";
+          };
+        };
 
-	window = {
-	  titlebar = false;
-	  border = 1;
-	  hideEdgeBorders = "both";
-	};
+        window = {
+          titlebar = false;
+          border = 1;
+          hideEdgeBorders = "both";
+        };
 
-	floating = {
-	  titlebar = true;
-	  border = 1;
-	};
+        floating = {
+          titlebar = true;
+          border = 1;
+        };
 
-	defaultWorkspace = "workspace number 1";
+        defaultWorkspace = "workspace number 1";
 
-	startup = [
-	  {
-	    command = "${lib.getExe pkgs.alacritty}";
-	  }
-	];
+        startup = [{ command = "${lib.getExe pkgs.alacritty}"; }];
 
-	keybindings = lib.mkOptionDefault {
-	  # Launch process
-	  "${mod}+Return" = "exec ${lib.getExe pkgs.alacritty}";
-	  "${mod}+space" = "exec ${lib.getExe pkgs.rofi} -show run";
+        keybindings = lib.mkOptionDefault {
+          # Launch process
+          "${mod}+Return" = "exec ${lib.getExe pkgs.alacritty}";
+          "${mod}+space" = "exec ${lib.getExe pkgs.rofi} -show run";
 
-	  # Switch process
-	  "${mod}+Tab" = "exec ${lib.getExe pkgs.rofi} -show window";
+          # Switch process
+          "${mod}+Tab" = "exec ${lib.getExe pkgs.rofi} -show window";
 
-	  # Move
+          # Move
           "${mod}+h" = "move left";
           "${mod}+j" = "move down";
           "${mod}+k" = "move up";
           "${mod}+l" = "move right";
 
-	  # Show floating windows with title
-	  "${mod}+Shift+space" = "floating toggle; [tiling con_id=__focused__] border none; [floating con_id=__focused__] border normal";
+          # Show floating windows with title
+          "${mod}+Shift+space" =
+            "floating toggle; [tiling con_id=__focused__] border none; [floating con_id=__focused__] border normal";
 
-	  # @TODO: Add scrot shortcut on F12
-	};
+          # @TODO: Add scrot shortcut on F12
+        };
 
-	bars = [
-	  {
-	    position = "bottom";
-	    statusCommand = "${pkgs.i3status}/bin/i3status";
-	    workspaceButtons = false;
-	    fonts = {
-	      names = [ "IBM Plex Mono" ];
-	      size = 12.0;
-	    };
-	    colors = {
-	      background = "#000000";
-	      statusline = "#FFFFFF";
-	      separator = "#000000";
-	    };
-	  }
-	];
+        bars = [{
+          position = "bottom";
+          statusCommand = "${pkgs.i3status}/bin/i3status";
+          workspaceButtons = false;
+          fonts = {
+            names = [ "IBM Plex Mono" ];
+            size = 12.0;
+          };
+          colors = {
+            background = "#000000";
+            statusline = "#FFFFFF";
+            separator = "#000000";
+          };
+        }];
       };
     };
   };

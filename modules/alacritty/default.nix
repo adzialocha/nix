@@ -2,9 +2,7 @@
 
 let cfg = config.modules.alacritty;
 in {
-  options.modules.alacritty = {
-    enable = lib.mkEnableOption "alacritty";
-  };
+  options.modules.alacritty = { enable = lib.mkEnableOption "alacritty"; };
 
   config = lib.mkIf cfg.enable {
     home.packages = [ pkgs.alacritty ];
