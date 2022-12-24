@@ -15,7 +15,7 @@ in {
 
         fonts = {
           names = [ "IBM Plex Mono" ];
-          size = 12.0;
+          size = 12.5;
         };
 
         colors = {
@@ -99,7 +99,7 @@ in {
           workspaceButtons = false;
           fonts = {
             names = [ "IBM Plex Mono" ];
-            size = 12.0;
+            size = 12.5;
           };
           colors = {
             background = "#000000";
