@@ -8,11 +8,6 @@ in {
     programs.fzf = {
       enable = true;
       enableZshIntegration = true;
-      defaultCommand = "fd --type f --hidden --follow --exclude .git";
-      defaultOptions = [
-        "--preview cat {}"
-      ];
-      fileWidgetCommand = "fd --type f --hidden --follow --exclude .git";
     };
   };
 }
