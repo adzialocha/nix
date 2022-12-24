@@ -19,19 +19,35 @@
     };
 
     packages = with pkgs; [
+      # Desktop applications
       firefox
+      signal-desktop
+      tdesktop
       thunderbird
 
+      # Useful tools and system libraries
+      cacert
       curl
+      dnsutils
+      fd
+      file
       htop
+      jq
+      man-pages
+      nixfmt
       openssl
+      scrot
+      silver-searcher
       tree
       unzip
       wget
 
+      # Fonts
       ibm-plex
       noto-fonts
       noto-fonts-emoji
+      roboto-mono
+      source-code-pro
     ];
 
     stateVersion = "22.11";

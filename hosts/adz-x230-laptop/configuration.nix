@@ -17,7 +17,7 @@
   time.timeZone = "Europe/Berlin";
 
   console = {
-    keyMap = "us";
+    enable = false;
   };
 
   i18n = {
@@ -42,18 +42,23 @@
   services = {
     xserver = {
       enable = true;
-      layout = "us";
-      xkbVariant = "";
+      layout = "eu";
       displayManager = {
+	# This session is just a placeholder, we let the home manager handle
+	# everything for us instead
         session = [{
           manage = "window";
           name = "placeholder";
           start = "";
         }];
         defaultSession = "none+placeholder";
+	# @TODO: Remove this and find a nice command line based login flow
         autoLogin.enable = true;
         autoLogin.user = "adz";
       };
+      excludePackages = with pkgs [
+        xterm
+      ];
     };
   };
 
