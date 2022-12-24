@@ -8,9 +8,9 @@ in {
     programs.fzf = {
       enable = true;
       enableZshIntegration = true;
-      defaultCommand = "fd --type f";
+      defaultCommand = "fd --type f --exclude .git --follow --hidden";
       defaultOptions =
-        [ "--exclude .git" "--follow" "--preview 'cat {}'" "--hidden" ];
+        [ "--preview 'cat {}'" ];
     };
   };
 }
