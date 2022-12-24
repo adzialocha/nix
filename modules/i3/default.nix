@@ -70,6 +70,8 @@ in {
 	  border = 1;
 	};
 
+	defaultWorkspace = "workspace number 1";
+
 	startup = [
 	  {
 	    command = "${lib.getExe pkgs.alacritty}";
@@ -92,6 +94,8 @@ in {
 
 	  # Show floating windows with title
 	  "${mod}+Shift+space" = "floating toggle; [tiling con_id=__focused__] border none; [floating con_id=__focused__] border normal";
+
+	  # @TODO: Add scrot shortcut on F12
 	};
 
 	bars = [
