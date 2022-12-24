@@ -6,7 +6,7 @@ My NixOS system configuration files.
 
 ```bash
 # Rebuild NixOS system
-nixos-rebuild switch --flake ~/dotfiles
+nixos-rebuild switch --flake ~/.dotfiles
 
 # Remove all previous NixOS versions (also from boot menu)
 nix-collect-garbage -d
