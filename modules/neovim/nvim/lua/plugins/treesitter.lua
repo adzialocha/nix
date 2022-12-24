@@ -5,6 +5,7 @@ require('nvim-treesitter.configs').setup {
     'jsdoc',
     'json',
     'markdown',
+    'nix',
     'python',
     'rust',
     'scss',
