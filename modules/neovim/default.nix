@@ -6,7 +6,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     home = {
-      packages = with pkgs; [ neovim ]; 
+      packages = with pkgs; [ neovim ];
 
       activation = {
         symlinkNeovimConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
