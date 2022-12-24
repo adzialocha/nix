@@ -29,6 +29,7 @@
       dnsutils
       fd
       file
+      gcc
       htop
       jq
       man-pages
@@ -39,6 +40,7 @@
       tree
       unzip
       wget
+      xclip
 
       # Fonts
       ibm-plex
