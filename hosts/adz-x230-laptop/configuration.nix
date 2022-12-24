@@ -56,7 +56,7 @@
         autoLogin.enable = true;
         autoLogin.user = "adz";
       };
-      excludePackages = with pkgs [
+      excludePackages = with pkgs; [
         xterm
       ];
     };
