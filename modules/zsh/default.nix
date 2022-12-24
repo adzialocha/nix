@@ -5,9 +5,7 @@ in {
   options.modules.zsh.enable = lib.mkEnableOption "zsh";
 
   config = lib.mkIf cfg.enable {
-    home.file = {
-      ".oh-my-zsh/custom/themes/adz-prompt.zsh-theme".source = config.lib.file.mkOutOfStoreSymlink ./adz-prompt.zsh-theme;
-    };
+    home.file.".oh-my-zsh/custom/themes/adz-prompt.zsh-theme".source = config.lib.file.mkOutOfStoreSymlink ./adz-prompt.zsh-theme;
 
     programs.zsh = {
       enable = true;
