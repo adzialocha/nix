@@ -90,7 +90,10 @@ in {
           "${mod}+Shift+space" =
             "floating toggle; [tiling con_id=__focused__] border none; [floating con_id=__focused__] border normal";
 
-          # @TODO: Add scrot shortcut on F12
+          # Take a screenshot
+          "F12" = "exec ${
+              lib.getExe pkgs.scrot
+            } --quality 90 ~/downloads/screenshot-%Y-%m-%dT%H:%M:%S.jpg";
         };
 
         bars = [{
