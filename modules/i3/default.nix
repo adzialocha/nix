@@ -66,10 +66,14 @@ in {
         floating = {
           titlebar = true;
           border = 1;
+          # To find out the criteria for a window we can make use of the
+          # "wmutil" core tools: https://github.com/wmutils/core. These tools
+          # will help us to find out the window id. With that id we can use
+          # "xprop" to get the criteria of that regarding window.
+          criteria = [];
         };
 
         defaultWorkspace = "workspace number 1";
-
         startup = [{ command = "${lib.getExe pkgs.alacritty}"; }];
 
         keybindings = lib.mkOptionDefault {
@@ -87,8 +91,7 @@ in {
           "${mod}+l" = "move right";
 
           # Show floating windows with title
-          "${mod}+Shift+space" =
-            "floating toggle; [tiling con_id=__focused__] border none; [floating con_id=__focused__] border normal";
+          "${mod}+Shift+space" = "floating toggle; [tiling con_id=__focused__] border none [floating con_id=__focused__] border normal; resize set 600 400; move position center";
 
           # Take a screenshot
           "F12" = "exec ${

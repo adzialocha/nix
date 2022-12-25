@@ -6,6 +6,5 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.file.".Xresources".source = ./.Xresources;
-    home.file.".xinitrc".source = ./.xinitrc;
   };
 }
