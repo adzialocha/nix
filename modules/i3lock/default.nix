@@ -5,9 +5,7 @@ in {
   options.modules.i3lock.enable = lib.mkEnableOption "i3lock";
 
   config = lib.mkIf cfg.enable {
-    home = {
-      packages = with pkgs; [ i3lock ];
-    };
+    home = { packages = with pkgs; [ i3lock ]; };
 
     services = {
       screen-locker = {

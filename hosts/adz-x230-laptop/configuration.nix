@@ -12,8 +12,6 @@
 
   time.timeZone = "Europe/Berlin";
 
-  console = { enable = false; };
-
   i18n = {
     defaultLocale = "en_US.utf8";
     extraLocaleSettings = {
@@ -31,6 +29,8 @@
 
   sound = { enable = true; };
 
+  console = { enable = true; };
+
   services = {
     xserver = {
       enable = true;
@@ -39,9 +39,8 @@
         # If you don't mind having services.xserver.enable = true; but you
         # don't want a display manager, and you want only a TTY login prompt,
         # use the following in your configuration.nix:
-        startx = {
-          enable = true;
-        };
+        startx.enable = true;
+
         # This session is just a placeholder, we let the home manager handle
         # everything for us instead
         session = [{
@@ -63,6 +62,10 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+
+  # Disable bluetooth
+  hardware.bluetooth.enable = false;
+  boot.blacklistedKernelModules = [ "bluetooth" "btusb" ];
 
   environment = { systemPackages = with pkgs; [ ]; };
 
