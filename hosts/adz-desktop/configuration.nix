@@ -16,8 +16,6 @@
 
   time.timeZone = "Europe/Berlin";
 
-  console = { keyMap = "us"; };
-
   i18n = {
     defaultLocale = "en_US.utf8";
     extraLocaleSettings = {
@@ -33,19 +31,26 @@
     };
   };
 
+  sound = { enable = true; };
+
+  console = { enable = true; };
+
   services = {
     xserver = {
       enable = true;
-      layout = "us";
+      layout = "eu";
       videoDrivers = [ "nvidia" ];
-      xkbVariant = "";
       displayManager = {
+        # This session is just a placeholder, we let the home manager handle
+        # everything for us instead
         session = [{
           manage = "window";
           name = "placeholder";
           start = "";
         }];
+
         defaultSession = "none+placeholder";
+
         autoLogin.enable = true;
         autoLogin.user = "adz";
       };
@@ -63,11 +68,11 @@
 
   environment = { systemPackages = with pkgs; [ ]; };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  # This value determines the NixOS release from which the default settings for
+  # stateful data, like file locations and database versions on your system
+  # were taken. It‘s perfectly fine and recommended to leave this value at the
+  # release version of the first install of this system. Before changing this
+  # value read the documentation for this option (e.g. man configuration.nix or
+  # on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
 }

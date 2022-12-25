@@ -70,7 +70,7 @@ in {
           # "wmutil" core tools: https://github.com/wmutils/core. These tools
           # will help us to find out the window id. With that id we can use
           # "xprop" to get the criteria of that regarding window.
-          criteria = [];
+          criteria = [ ];
         };
 
         defaultWorkspace = "workspace number 1";
@@ -91,7 +91,8 @@ in {
           "${mod}+l" = "move right";
 
           # Show floating windows with title
-          "${mod}+Shift+space" = "floating toggle; [tiling con_id=__focused__] border none [floating con_id=__focused__] border normal; resize set 600 400; move position center";
+          "${mod}+Shift+space" =
+            "floating toggle; [tiling con_id=__focused__] border none [floating con_id=__focused__] border normal; resize set 600 400; move position center";
 
           # Take a screenshot
           "F12" = "exec ${
