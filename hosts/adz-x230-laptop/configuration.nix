@@ -36,6 +36,12 @@
       enable = true;
       layout = "eu";
       displayManager = {
+        # If you don't mind having services.xserver.enable = true; but you
+        # don't want a display manager, and you want only a TTY login prompt,
+        # use the following in your configuration.nix:
+        startx = {
+          enable = true;
+        };
         # This session is just a placeholder, we let the home manager handle
         # everything for us instead
         session = [{
@@ -44,9 +50,6 @@
           start = "";
         }];
         defaultSession = "none+placeholder";
-        # @TODO: Remove this and find a nice command line based login flow
-        autoLogin.enable = true;
-        autoLogin.user = "adz";
       };
       excludePackages = with pkgs; [ xterm ];
     };
