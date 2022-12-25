@@ -60,6 +60,7 @@
     fzf.enable = true;
     git.enable = true;
     i3.enable = true;
+    i3lock.enable = true;
     i3status.enable = true;
     neovim.enable = true;
     rofi.enable = true;
