@@ -9,7 +9,9 @@
     ./i3lock
     ./i3status
     ./neovim
+    ./nodejs
     ./rofi
+    ./rust
     ./x11
     ./zsh
   ];

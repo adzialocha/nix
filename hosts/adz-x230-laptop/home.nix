@@ -63,7 +63,9 @@
     i3lock.enable = true;
     i3status.enable = true;
     neovim.enable = true;
+    nodejs.enable = true;
     rofi.enable = true;
+    rust.enable = true;
     x11.enable = true;
     zsh.enable = true;
   };
