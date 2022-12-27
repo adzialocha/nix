@@ -13,22 +13,21 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs =
-    { self, nixpkgs, home-manager, nixos-hardware, ... }: {
-      nixosConfigurations.adz-x230-laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          nixos-hardware.nixosModules.lenovo-thinkpad-x230
-          ./hosts/adz-x230-laptop/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = false;
-              users.adz = import ./hosts/adz-x230-laptop/home.nix;
-            };
-          }
-        ];
-      };
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }: {
+    nixosConfigurations.adz-x230-laptop = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        nixos-hardware.nixosModules.lenovo-thinkpad-x230
+        ./hosts/adz-x230-laptop/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = false;
+            users.adz = import ./hosts/adz-x230-laptop/home.nix;
+          };
+        }
+      ];
     };
+  };
 }

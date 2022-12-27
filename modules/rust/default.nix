@@ -5,11 +5,6 @@ in {
   options.modules.rust.enable = lib.mkEnableOption "rust";
 
   config = lib.mkIf cfg.enable {
-    home = {
-      packages = with pkgs; [
-        rustup
-        rust-analyzer
-      ];
-    }
+    home = { packages = with pkgs; [ rustup rust-analyzer ]; };
   };
 }
