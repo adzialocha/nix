@@ -3,6 +3,7 @@
 {
   imports = [
     ./alacritty
+    ./direnv
     ./fzf
     ./git
     ./i3

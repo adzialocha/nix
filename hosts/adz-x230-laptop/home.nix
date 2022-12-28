@@ -57,6 +57,7 @@
 
   modules = {
     alacritty.enable = true;
+    direnv.enable = true;
     fzf.enable = true;
     git.enable = true;
     i3.enable = true;
