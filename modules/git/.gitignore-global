@@ -16,3 +16,6 @@ Desktop.ini
 .swo
 .*.swp
 .*.swo
+
+# Direnv (for now, we might need to make this more fine-grained soon)
+.envrc
