@@ -7,23 +7,25 @@
       url = "github:oxalica/rust-overlay";
       follows = "nixpkgs";
     };
-    utils = {
+    flake-utils = {
       url = "github:numtide/flake-utils";
       follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, rust-overlay, utils, ... }:
-    utils.lib.eachDefaultSystem (system:
+  outputs = { self, nixpkgs, rust-overlay, flake-utils, ... }:
+    flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
           inherit system;
           overlays = [ (import rust-overlay) ];
         };
       in {
-        devShells = pkgs.mkShell {
+        devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [ openssl rust-bin.stable.latest.default ];
-          shellHook = "";
+          shellHook = ''
+          '';
         };
-      });
+      }
+    );
 }
