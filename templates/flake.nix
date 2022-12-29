@@ -1,17 +1,12 @@
 {
   description = "My flake templates";
 
-  inputs = {
-    official.url = github:NixOS/templates;
-  };
-
-  outputs = { self, official, ... }: {
+  outputs = { self, ... }: {
     templates = {
       rust = {
         path = ./rust;
         description = "Rust environment";
       };
     };
-    official.templates;
   };
 }
