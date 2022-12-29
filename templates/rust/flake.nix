@@ -3,8 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
-    rust-overlay.url = "github:oxalica/rust-overlay";
-    flake-utils.url = "github:numtide/flake-utils";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      follows = "nixpkgs";
+    };
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, rust-overlay, flake-utils, ... }:
@@ -12,10 +18,9 @@
       let
         overlays = [ (import rust-overlay) ];
         pkgs = import nixpkgs { inherit system overlays; };
-      in with pkgs; {
+      in {
         devShells.default = mkShell {
-          buildInputs = [ openssl rust-bin.stable.latest.default ];
-
+          buildInputs = with pkgs; [ openssl rust-bin.stable.latest.default ];
           shellHook = "";
         };
       });
