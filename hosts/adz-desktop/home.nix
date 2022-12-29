@@ -34,7 +34,6 @@
       jq
       man-pages
       nixfmt
-      openssl
       scrot
       silver-searcher
       tree
@@ -57,6 +56,7 @@
 
   modules = {
     alacritty.enable = true;
+    direnv.enable = true;
     fzf.enable = true;
     git.enable = true;
     i3.enable = true;

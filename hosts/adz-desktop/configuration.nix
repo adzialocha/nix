@@ -1,6 +1,13 @@
 { config, pkgs, ... }:
 
 {
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
   imports = [ ./hardware-configuration.nix ];
 
   boot = {
@@ -39,6 +46,7 @@
     xserver = {
       enable = true;
       layout = "eu";
+      dpi = 192;
       videoDrivers = [ "nvidia" ];
       displayManager = {
         # This session is just a placeholder, we let the home manager handle
@@ -48,12 +56,11 @@
           name = "placeholder";
           start = "";
         }];
-
         defaultSession = "none+placeholder";
-
         autoLogin.enable = true;
         autoLogin.user = "adz";
       };
+      excludePackages = with pkgs; [ xterm ];
     };
   };
 
@@ -63,6 +70,8 @@
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
+
+  programs.ssh.startAgent = true;
 
   nixpkgs.config.allowUnfree = true;
 
