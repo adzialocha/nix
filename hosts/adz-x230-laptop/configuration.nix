@@ -48,7 +48,6 @@
           start = "";
         }];
         defaultSession = "none+placeholder";
-
         lightdm = {
           enable = true;
           background = "#000000";
@@ -57,13 +56,20 @@
             user = "adz";
             extraConfig = ''
               [greeter]
-              show-password-label = false
+              password-input-width = 30
+              show-password-label = true
               [greeter-theme]
               background-color = "#000000"
+              border-color = "#000000"
+              error-color = "#000000"
+              font = "IBM Plex Mono"
+              font-size = "16px"
+              font-weight = "normal"
+              password-background-color = "#ffffff"
+              password-border-color = "#ffffff"
+              password-color = "#000000"
+              text-color = "#000000"
               window-color = "#ffffff"
-              password-background-color = "#000000"
-              password-color = "#ffffff"
-              border-color = "#ffffff"
             '';
           };
         };
