@@ -1,6 +1,3 @@
-# This is a Nix Flake file. It helps us with defining Nix package dependencies
-# we need to pull in first to be able to setup our system.
-
 {
   description = "My system configurations";
 
@@ -10,9 +7,7 @@
       url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware = {
-      url = "github:NixOS/nixos-hardware/master";
-    };
+    nixos-hardware = { url = "github:NixOS/nixos-hardware/master"; };
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }: {

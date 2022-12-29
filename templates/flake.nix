@@ -1,12 +1,13 @@
 {
   description = "My development environment templates";
 
-  outputs = { self, ... }: {
+  outputs = { self }: {
     templates = {
       rust = {
         description = "Rust environment";
         path = ./rust;
       };
     };
+    defaultTemplate = self.templates.rust;
   };
 }
