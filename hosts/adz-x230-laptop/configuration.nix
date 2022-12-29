@@ -40,12 +40,6 @@
       enable = true;
       layout = "eu";
       displayManager = {
-        # @TODO: This doesn't work yet ..
-        # If you don't mind having services.xserver.enable = true; but you
-        # don't want a display manager, and you want only a TTY login prompt,
-        # use the following in your configuration.nix:
-        # startx.enable = true;
-
         # This session is just a placeholder, we let the home manager handle
         # everything for us instead
         session = [{
@@ -55,11 +49,23 @@
         }];
         defaultSession = "none+placeholder";
 
-        # @TODO: Remove lightdm for login
         lightdm = {
           enable = true;
           background = "#000000";
-          extraConfig = "";
+          greeters.mini = {
+            enable = true;
+            user = "adz";
+            extraConfig = ''
+              [greeter]
+              show-password-label = false
+              [greeter-theme]
+              background-color = "#000000"
+              window-color = "#ffffff"
+              password-background-color = "#000000"
+              password-color = "#ffffff"
+              border-color = "#ffffff"
+            '';
+          };
         };
       };
       excludePackages = with pkgs; [ xterm ];
