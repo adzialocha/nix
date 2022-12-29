@@ -22,6 +22,7 @@ in {
         };
         init = { defaultBranch = "main"; };
         apply = { whitespace = "fix"; };
+        advice = { addIgnoredFile = false; };
         color = { ui = "auto"; };
         "color \"branch\"" = {
           current = "yellow reverse";
