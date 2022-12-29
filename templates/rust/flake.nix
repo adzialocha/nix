@@ -20,7 +20,10 @@
         pkgs = import nixpkgs { inherit system overlays; };
       in {
         devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs; [ openssl rust-bin.stable.latest.default ];
+          buildInputs = with pkgs; [
+            rust-analyzer
+            rust-bin.stable.latest.default
+          ];
           shellHook = "";
         };
       });
