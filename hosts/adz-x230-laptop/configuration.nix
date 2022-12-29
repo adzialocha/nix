@@ -1,6 +1,13 @@
 { config, pkgs, ... }:
 
 {
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
   imports = [ ./hardware-configuration.nix ];
 
   boot = { loader.systemd-boot.enable = true; };
@@ -63,7 +70,7 @@
               border-color = "#000000"
               error-color = "#000000"
               font = "IBM Plex Mono"
-              font-size = "16px"
+              font-size = "1.5em"
               font-weight = "normal"
               password-background-color = "#ffffff"
               password-border-color = "#ffffff"
@@ -84,6 +91,8 @@
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
+
+  programs.ssh.startAgent = true;
 
   nixpkgs.config.allowUnfree = true;
 
