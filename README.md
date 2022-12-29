@@ -16,4 +16,10 @@ nix-collect-garbage -d
 
 # Format .nix files
 nixfmt **/*.nix
+
+# Set alias for templates folder
+nix registry add templates ~/.dotfiles/templates
+
+# Set up a Rust project with template (example)
+nix flake init -t templates#rust
 ```

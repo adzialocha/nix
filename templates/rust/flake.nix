@@ -21,7 +21,7 @@
           overlays = [ (import rust-overlay) ];
         };
       in {
-        devShells = mkShell {
+        devShells = pkgs.mkShell {
           buildInputs = with pkgs; [ openssl rust-bin.stable.latest.default ];
           shellHook = "";
         };
