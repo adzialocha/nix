@@ -14,11 +14,15 @@
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }: {
+    # Pull in our own flake templates
+    templates = import ./templates;
+
+    # Set up NixOS with home-mananger for each machine
     nixosConfigurations.adz-x230-laptop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        nixos-hardware.nixosModules.lenovo-thinkpad-x230
         ./hosts/adz-x230-laptop/configuration.nix
+        nixos-hardware.nixosModules.lenovo-thinkpad-x230
         home-manager.nixosModules.home-manager
         {
           home-manager = {
