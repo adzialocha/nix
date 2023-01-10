@@ -15,7 +15,7 @@ require('nvim-treesitter.configs').setup {
     'yaml',
   },
   highlight = {
-    enable = true,
+    enable = false,
   },
 }
 
