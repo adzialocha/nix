@@ -3,6 +3,10 @@
 
   outputs = { self }: {
     templates = {
+      node = {
+        description = "NodeJS environment";
+        path = ./node;
+      };
       rust = {
         description = "Rust environment";
         path = ./rust;
