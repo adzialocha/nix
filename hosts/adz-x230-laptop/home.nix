@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ../home ];
+  imports = [ ../home.nix ];
 
   # @TODO: This is not working
   services = {
