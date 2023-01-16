@@ -19,6 +19,7 @@
     packages = with pkgs; [
       # Desktop applications
       firefox
+      libreoffice
       signal-desktop
       tdesktop
       thunderbird

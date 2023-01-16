@@ -40,13 +40,10 @@
 
   sound = { enable = true; };
 
-  console = { enable = true; };
-
   services = {
     xserver = {
       enable = true;
       layout = "eu";
-      dpi = 192;
       videoDrivers = [ "nvidia" ];
       displayManager = {
         # This session is just a placeholder, we let the home manager handle
