@@ -18,7 +18,7 @@
             pkgs.nodePackages.npm
             pkgs.nodePackages.npm-check-updates
             language-servers.packages.${system}.typescript-language-server
-            language-servers.packages.${system}.vscode-eslint-language-server
+            language-servers.packages.${system}.vscode-langservers-extracted
           ];
           shellHook = "";
         };
