@@ -10,8 +10,7 @@
   outputs = { self, nixpkgs, language-servers, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        overlays = [ (import rust-overlay) ];
-        pkgs = import nixpkgs { inherit system overlays; };
+        pkgs = import nixpkgs { inherit system; };
       in {
         devShells.default = pkgs.mkShell {
           buildInputs = [
